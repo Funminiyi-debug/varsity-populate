@@ -43,7 +43,7 @@ const DELETE = () => {
 };
 
 // POST(categories);
-DELETE();
-// GET();
+// DELETE();
+GET();
 // PUT(categories);
 // process.exit(0);
