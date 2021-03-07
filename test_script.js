@@ -31,15 +31,53 @@ const formatProductSchema = () => {
     "price",
     "delivery",
   ];
-  const otherFields = Object.keys(data).map((key) => {
-    if (!allNecessaryKeys.includes(key.toLowerCase())) {
-      return {
-        [key]: data[key],
-      };
-    }
-  });
+  const otherFields = Object.keys(data)
+    .map((key) => {
+      if (!allNecessaryKeys.includes(key.toLowerCase())) {
+        return {
+          [key]: data[key],
+        };
+      }
+    })
+    .filter((item) => item != undefined);
 
-  console.log(otherFields.filter((item) => item != undefined));
+  dbEntity.otherFields = otherFields;
+
+  console.log("the entity we want to test ", dbEntity);
+  return dbEntity;
 };
 
-formatProductSchema();
+const formatProduct_Service = (payload) => {
+  if (Array.isArray(payload)) {
+    payload = payload.map((element) => {
+      if (element.otherFields != undefined) {
+        const { otherFields } = element;
+        otherFields.forEach((item) => {
+          Object.keys(item).forEach((v) => {
+            element[v] = item[v];
+          });
+        });
+      }
+      delete element.otherFields;
+      return element;
+    });
+  } else {
+    if (payload.otherFields != undefined) {
+      const { otherFields } = payload;
+      otherFields.forEach((item) => {
+        Object.keys(item).forEach((v) => {
+          payload[v] = item[v];
+        });
+      });
+    }
+  }
+
+  delete payload.otherFields;
+  return payload;
+};
+const value = formatProduct_Service([
+  formatProductSchema(),
+  formatProductSchema(),
+  formatProductSchema(),
+]);
+console.log("final result", value);

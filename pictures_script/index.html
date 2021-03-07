@@ -68,10 +68,12 @@
         </div>
 
         <div class="form-group my-3">
-          <input type="file" name="image" id="image" />
+          <input type="file" name="image" id="image" multiple />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
+      <button class="btn btn-primary my-5" onclick="getProducts()">GET</button>
     </div>
     <script src="./constants.js"></script>
     <script src="../libs/jquery.min.js"></script>

@@ -9,10 +9,23 @@ const token = `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MDM3OTZjNGVmOGI4
 const constants = {
   headers: {
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "multipart/form-data",
+      // "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   },
   baseUrl: `http://localhost:3001/api`,
+  sample: {
+    id: `60451fb840fc6921c42cf9ea`,
+    title: "Food",
+    subcategoryId: "603e71c546cd7d39fccd81ec",
+    adStatus: "Draft",
+    school: "OAU",
+    price: "20000",
+    delivery: true,
+    gender: "female",
+    type: "Versace",
+    condition: "good",
+  },
 };
 // export default { headers, baseUrl };

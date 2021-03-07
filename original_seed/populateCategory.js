@@ -63,24 +63,6 @@ const POST_PRODUCT = () => {
     .catch((err) => console.log(err.response.data.error));
 };
 
-const POST_SERVICE = () => {
-  const sample = {
-    title: "Food",
-    categoryId: "603cca148f88f60017GDSAnf",
-    adStatus: "Draft",
-    school: "FUTA",
-    price: "20000",
-    delivery: true,
-    address: "14, adebo street",
-    generator: true,
-  };
-  axios
-    .post(`${baseUrl}/services`, sample, {
-      ...headers,
-    })
-    .then((data) => console.log(data.data))
-    .catch((err) => console.log(err.response.data.error));
-};
 // POST(categories);
 // DELETE();
 // GET();
@@ -88,4 +70,5 @@ const POST_SERVICE = () => {
 // process.exit(0);
 
 // POST_PRODUCT();
-POST_SERVICE();
+// POST_SERVICE();
+GET_PRODUCTS();

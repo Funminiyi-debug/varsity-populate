@@ -61,8 +61,8 @@ const DELETE = () => {
     .then((data) => console.log(data.data))
     .catch((err) => console.log(err));
 };
-POST(subcategories);
+// POST(subcategories);
 // PUT(subcategories);
-// GET();
+GET();
 // DELETE();
 // process.exit(0);

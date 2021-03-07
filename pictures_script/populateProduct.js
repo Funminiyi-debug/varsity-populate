@@ -1,24 +1,45 @@
 // const { baseUrl, headers } = require("../payloads/constants");
 
-const { baseUrl, headers } = constants;
+const { sample, baseUrl, headers } = constants;
+function getProducts() {
+  $.ajax({
+    url: `${baseUrl}/products`,
+    method: "get",
+    headers: { ...headers.headers },
+  })
+    .done((data) => {
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
+}
 
 jQuery(function () {
   $("#myForm").on("submit", (e) => {
     e.preventDefault();
+    // get the image
     const formValues = new FormData(this[0]);
-    console.log(formValues.entries());
-    // $.post()
+    const files = $("#image")[0].files;
+
+    Object.entries(files).forEach((file) => {
+      formValues.append("images", file[1]);
+    });
+
+    Object.keys(sample).map((key) => {
+      formValues.append(key, sample[key]);
+    });
+
     $.ajax({
-      url: baseUrl,
+      url: `${baseUrl}/products/60451fb840fc6921c42cf9ea`,
       data: formValues,
+      cache: false,
+
       headers: {
-        "Access-Control-Allow-Origin": "*",
         ...headers.headers,
       },
 
       processData: false,
       contentType: false,
-      type: "POST",
+      type: "put",
       success: function (data) {
         console.log(data);
       },
