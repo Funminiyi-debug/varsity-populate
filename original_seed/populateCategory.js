@@ -42,8 +42,33 @@ const DELETE = () => {
     .catch((err) => console.log(err));
 };
 
-// POST(categories);
+const POST_PRODUCT = () => {
+  const sample = {
+    title: "Food",
+    subcategoryId: "603cca148f88f60017327f5f",
+    adStatus: "Draft",
+    school: "FUTA",
+    price: "20000",
+    delivery: true,
+    gender: "male",
+    type: "Versace",
+    condition: "good",
+  };
+  axios
+
+    .post(`${baseUrl}/products`, sample, {
+      ...headers,
+    })
+    .then((data) => console.log(data.data))
+    .catch((err) => console.log(err.response.data.error));
+};
+
+POST(categories);
 // DELETE();
-GET();
+// GET();
 // PUT(categories);
 // process.exit(0);
+
+// POST_PRODUCT();
+// POST_SERVICE();
+// GET_PRODUCTS();

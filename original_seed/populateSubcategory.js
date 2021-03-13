@@ -8,7 +8,6 @@ const { baseUrl, headers } = require("../payloads/constants");
 const POST = (array) => {
   array.forEach(async (subcategory) => {
     try {
-      console.log("current item", btoa(subcategory.categoryName));
       const categoryid = (
         await axios.get(
           `${baseUrl}/categories/?name=${btoa(subcategory.categoryName)}`,
@@ -61,8 +60,8 @@ const DELETE = () => {
     .then((data) => console.log(data.data))
     .catch((err) => console.log(err));
 };
-POST(subcategories);
+// POST(subcategories);
 // PUT(subcategories);
-// GET();
+GET();
 // DELETE();
 // process.exit(0);
