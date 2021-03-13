@@ -1,12 +1,18 @@
 const posts = [
   {
-    body: "When is course registration closing for Unilag?",
+    title: "When is course registration closing for Unilag?",
+    postType: "Regular",
+    sector: "General",
   },
   {
-    body: "Poll: Who is the best rapper in Africa",
+    question: "Poll: Who is the best rapper in Africa",
+    postType: "Poll",
+    sector: "General",
   },
   {
-    body: "Buy your data at subsidized rates Mtn, Glo, Aitel...",
+    title: "Buy your data at subsidized rates Mtn, Glo, Aitel...",
+    postType: "Regular",
+    sector: "General",
   },
 ];
 

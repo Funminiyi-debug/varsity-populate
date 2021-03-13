@@ -8,7 +8,6 @@ const { baseUrl, headers } = require("../payloads/constants");
 const POST = (array) => {
   array.forEach(async (subcategory) => {
     try {
-      console.log("current item", btoa(subcategory.categoryName));
       const categoryid = (
         await axios.get(
           `${baseUrl}/categories/?name=${btoa(subcategory.categoryName)}`,

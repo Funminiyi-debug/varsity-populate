@@ -63,7 +63,7 @@ const POST_PRODUCT = () => {
     .catch((err) => console.log(err.response.data.error));
 };
 
-// POST(categories);
+POST(categories);
 // DELETE();
 // GET();
 // PUT(categories);
@@ -71,4 +71,4 @@ const POST_PRODUCT = () => {
 
 // POST_PRODUCT();
 // POST_SERVICE();
-GET_PRODUCTS();
+// GET_PRODUCTS();
